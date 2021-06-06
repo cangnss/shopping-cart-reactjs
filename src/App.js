@@ -1,24 +1,39 @@
-import logo from './logo.svg';
 import './App.css';
+import { Switch, Route } from 'react-router-dom'
+import Navbar from './components/Navbar';
+import { useState, useEffect } from 'react';
+import About from './components/About';
+import ProductContainer from './containers/ProductContainer';
 
 function App() {
+
+  const [items, setItems] = useState([])
+  const [piece, setPiece] = useState(0)
+
+  const addPiece = () =>{
+      setPiece(piece+1)
+  }
+
+  const deletePiece = () => {
+    setPiece(piece-1)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar piece={piece} />
+
+      <Switch>
+        <Route path='/about'>
+          <About />
+        </Route>
+        <Route path='/products'>
+          <ProductContainer addPiece={addPiece} deletePiece={deletePiece} />
+        </Route>
+        <Route path='/'>
+          <ProductContainer addPiece={addPiece} deletePiece={deletePiece} />
+        </Route>
+      </Switch>
+    </>
   );
 }
 
