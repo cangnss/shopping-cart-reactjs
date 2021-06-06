@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[Live](https://quizzical-elion-576ca4.netlify.app/)
 
 ## Available Scripts
 
